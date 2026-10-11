@@ -13,7 +13,7 @@ pub fn generate_device_id() -> String {
 /// 生成随机 hex 字符串（指定字节数，输出 hex）
 pub fn random_hex(bytes: usize) -> String {
     let mut rng = rand::rng();
-    let data: Vec<u8> = (0..bytes).map(|_| rng.gen()).collect();
+    let data: Vec<u8> = (0..bytes).map(|_| rng.random()).collect();
     hex::encode(&data)
 }
 
