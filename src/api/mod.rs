@@ -287,6 +287,7 @@ mod video_url;
 
 // ---- 私信 ----
 mod msg_comments;
+mod msg_count_clear;
 mod msg_forwards;
 mod msg_notices;
 mod msg_private;
