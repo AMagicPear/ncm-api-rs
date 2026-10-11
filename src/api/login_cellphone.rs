@@ -15,14 +15,15 @@ impl ApiClient {
             "https": "true",
             "phone": query.get_or("phone", ""),
             "countrycode": query.get_or("countrycode", "86"),
-            "remember": "true"
+            "rememberLogin": "true"
         });
 
         if let Some(captcha) = query.get("captcha") {
+            // 验证码登录：只发 captcha，不发 password。参考 Node.js 参考实现
+            // 的动态字段名（[captcha ? 'captcha' : 'password']），两个字段互斥；
+            // password 一旦存在，服务器就走密码分支把验证码当密码比对，
+            // 返回“账号或密码错误”（upstream issue #5）。
             data["captcha"] = Value::String(captcha.to_string());
-            // Node.js 在有 captcha 时同时设置 captcha 字段（上面已设置）
-            // 且 password 字段也设为 captcha 的值
-            data["password"] = Value::String(captcha.to_string());
         } else {
             let password = if let Some(md5_pwd) = query.get("md5_password") {
                 md5_pwd.to_string()
