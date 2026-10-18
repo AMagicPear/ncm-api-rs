@@ -131,8 +131,11 @@ mod comment_playlist;
 mod comment_video;
 
 // ---- 推荐相关 ----
+mod customize_block_page;
 mod history_recommend_songs;
 mod history_recommend_songs_detail;
+mod pc_rcmd_resource_show;
+mod personal_page_playlist_rcmd;
 mod personalized;
 mod personalized_djprogram;
 mod personalized_mv;
