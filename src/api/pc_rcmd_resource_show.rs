@@ -5,7 +5,7 @@ use super::Query;
 use crate::error::Result;
 use crate::request::{ApiClient, ApiResponse, CryptoType};
 use chrono::Local;
-use serde_json::{Value, json};
+use serde_json::{json, Value};
 
 impl ApiClient {
     /// 推荐页首屏聚合。
